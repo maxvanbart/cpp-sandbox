@@ -6,6 +6,7 @@ extern "C" {
 #endif
 
 int faker(int n);
+int *cumsum(int data[]);
 
 #ifdef __cplusplus
 }
