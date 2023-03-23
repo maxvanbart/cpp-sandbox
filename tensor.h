@@ -9,6 +9,20 @@ public:
     double& operator[] (int i) const;
     double& operator() (int i, int j, int k) const;
 
+    // Copy constructor
+    Tensor(const Tensor& other);
+    // Move constructor
+    Tensor(Tensor&& other) noexcept ;
+
+    // Copy assignment operator
+    Tensor operator=(const Tensor& other);
+    // Move assignment operator
+    Tensor& operator=(Tensor&& other);
+
+
+
+
+
 
     int height;
     int width;
