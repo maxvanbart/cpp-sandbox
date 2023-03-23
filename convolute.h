@@ -3,8 +3,10 @@
 
 #include <random>
 #include <iostream>
+#include <cmath>
 
 #include "tensor.h"
+#include "padding.h"
 
 class Conv2d {
 public:

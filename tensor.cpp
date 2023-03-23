@@ -140,6 +140,15 @@ void Tensor::print() {
     }
 }
 
+Tensor Tensor::flatten() {
+    Tensor y(size, 1, 1);
+    for (int i = 0; i < size; i++) {
+        y.data[i] = data[i];
+    }
+    return y;
+}
+
+
 
 
 

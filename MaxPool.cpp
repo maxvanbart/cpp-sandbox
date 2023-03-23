@@ -19,7 +19,7 @@ Tensor maxpool(const Tensor& x, int KS, int stride) {
                     for (int j = 0; j < KS; j++) {
 //                        double i_max = std::max(x(i,j,k),x(i+1,j,k));
 //                        double j_max = std::max(x(i,j+1,k),xj+1]);
-                        max_val = std::max(max_val,x(I*KS+i, J*KS+j, k));
+                        max_val = std::max(max_val,x(I*stride+i, J*stride+j, k));
                     }
                 }
 //                std::cout << "Found maximum value of " << max_val << " for I=" << I << " and J=" << J << std::endl;

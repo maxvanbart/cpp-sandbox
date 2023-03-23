@@ -21,12 +21,9 @@ public:
     // Move assignment operator
     Tensor& operator=(Tensor&& other);
 
+    Tensor flatten();
+
     void print();
-
-
-
-
-
 
     int height;
     int width;
