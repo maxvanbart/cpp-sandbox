@@ -126,6 +126,20 @@ Tensor &Tensor::operator=(Tensor &&other) {
     return *this;
 }
 
+void Tensor::print() {
+
+    for (int k = 0; k < depth; k++) {
+        for (int j = 0; j < height; j++) {
+            std::cout << "[ ";
+            for (int i = 0; i < width; i ++) {
+                std::cout << data[i + width * j + width * height * k] << " ";
+            }
+            std::cout << "]\n";
+        }
+        std::cout << "\n";
+    }
+}
+
 
 
 

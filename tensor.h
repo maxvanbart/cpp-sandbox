@@ -1,6 +1,8 @@
 #ifndef SANDBOX_TENSOR_H
 #define SANDBOX_TENSOR_H
 
+#include <iostream>
+
 class Tensor {
 public:
     Tensor();
@@ -18,6 +20,8 @@ public:
     Tensor operator=(const Tensor& other);
     // Move assignment operator
     Tensor& operator=(Tensor&& other);
+
+    void print();
 
 
 

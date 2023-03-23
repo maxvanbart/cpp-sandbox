@@ -6,11 +6,12 @@
 #define SANDBOX_MAXPOOL_H
 
 #include"padding.h"
-#include"math.h"
+
 #include<cmath>
+#include<iostream>
 
 
-Tensor maxpool(const Tensor& x, int KS);
+Tensor maxpool(const Tensor& x, int KS, int stride);
 
 
 

@@ -1,6 +1,9 @@
 #ifndef SANDBOX_CONVOLUTE_H
 #define SANDBOX_CONVOLUTE_H
 
+#include <random>
+#include <iostream>
+
 #include "tensor.h"
 
 class Conv2d {
@@ -20,6 +23,8 @@ public:
 
 
     Tensor forward(const Tensor& x);
+    void init_params();
+    void print();
 
 };
 

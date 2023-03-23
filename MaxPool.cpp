@@ -12,8 +12,8 @@ Tensor maxpool(const Tensor& x, int KS, int stride) {
     Tensor y = Tensor(w_out_max, h_out_max, x.depth);
 
     for (int k = 0; k < x.depth; k++) {
-        for (int I = 0; I < floor(w_out_max/KS); I++) {
-            for (int J = 0; J < floor(h_out_max/KS); J++) {
+        for (int I = 0; I < w_out_max; I++) {
+            for (int J = 0; J < h_out_max; J++) {
                 double max_val = 0;
                 for (int i = 0; i < KS; i++) {
                     for (int j = 0; j < KS; j++) {
@@ -22,6 +22,7 @@ Tensor maxpool(const Tensor& x, int KS, int stride) {
                         max_val = std::max(max_val,x(I*KS+i, J*KS+j, k));
                     }
                 }
+//                std::cout << "Found maximum value of " << max_val << " for I=" << I << " and J=" << J << std::endl;
                 y(I,J,k) = max_val;
             }
         }

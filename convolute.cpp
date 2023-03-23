@@ -36,3 +36,23 @@ Conv2d::~Conv2d() {
 Tensor Conv2d::forward(const Tensor &x) {
     return x;
 }
+
+void Conv2d::init_params() {
+    std::default_random_engine generator;
+    std::normal_distribution<double> distribution(0, 0.667);
+
+    for (int i = 0; i < out_channels; i++) {
+        bias[i] = distribution(generator);
+        for (int j = 0; j < weight[i].size; j++) {
+            weight[i].data[j] = distribution(generator);
+        }
+    }
+}
+
+void Conv2d::print() {
+    std::cout << "Biases: [ ";
+    for (int i = 0; i < out_channels; i++) {
+        std::cout << bias[i] << " ";
+    }
+    std::cout << "]\n";
+}
