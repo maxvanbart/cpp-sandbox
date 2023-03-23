@@ -22,12 +22,4 @@ private:
     T* data;
 };
 
-
-
-
-template<typename T>
-Tensor<T> pad(Tensor<T> x, int padding)
-
-
-
 #endif //SANDBOX_TENSOR_H
