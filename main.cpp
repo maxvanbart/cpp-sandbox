@@ -1,5 +1,6 @@
 #include <iostream>
-#include "FTensor.hpp"
+
+#include "tensor.h"
 
 int fibonacci(int n) {
     if (n == 1) {
@@ -18,10 +19,13 @@ int main() {
 
     std::cout << i << "th fibonacci number: " << fibonacci(i) << "\n";
 
-    FTensor::Tensor2<double, 3, 3> weight;
-    FTensor::Tensor1<double, 3> x;
-    FTensor::Tensor1<double, 3> bias;
-    auto y = x * weight + bias;
+//    Tensor t1(3, 3, 3);
+
+    Tensor t1(3, 3, 3);
+
+    t1[4] = 55;
+
+    std::cout << t1(1,1,0) << std::endl;
 
     return 0;
 }

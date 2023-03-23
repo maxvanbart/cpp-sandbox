@@ -4,11 +4,10 @@
 
 #include "padding.h"
 
-template<typename T>
-Tensor<T> pad(Tensor<T> x, int padding) {
+Tensor pad(const Tensor& x, int padding) {
     int w_out = x.width + padding * 2;
     int h_out = x.height + padding * 2;
-    Tensor<T> y = Tensor<T>(w_out, h_out, x.depth);
+    Tensor y = Tensor(w_out, h_out, x.depth);
 
     for (int i = 0; i < x.width; i++) {
         for (int j = 0; j < x.height; j++) {

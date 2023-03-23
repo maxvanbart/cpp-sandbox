@@ -7,7 +7,6 @@
 
 #include "tensor.h"
 
-template<typename T>
-Tensor<T> pad(Tensor<T> x, int padding);
+Tensor pad(const Tensor& x, int padding);
 
 #endif //SANDBOX_PADDING_H
