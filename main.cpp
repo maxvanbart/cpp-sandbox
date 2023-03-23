@@ -1,4 +1,5 @@
 #include <iostream>
+#include "FTensor.hpp"
 
 int fibonacci(int n) {
     if (n == 1) {
@@ -13,10 +14,14 @@ int fibonacci(int n) {
 
 int main() {
     std::cout << "Hello world!\n";
-    int i = 8;
+    int i = 4;
 
     std::cout << i << "th fibonacci number: " << fibonacci(i) << "\n";
 
+    FTensor::Tensor2<double, 3, 3> weight;
+    FTensor::Tensor1<double, 3> x;
+    FTensor::Tensor1<double, 3> bias;
+    auto y = x * weight + bias;
 
     return 0;
 }
