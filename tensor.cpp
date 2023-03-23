@@ -39,6 +39,7 @@
 ////    int size;
 //};
 
+// Default constructor
 Tensor::Tensor() {
     width = 0;
     height = 0;
@@ -47,12 +48,35 @@ Tensor::Tensor() {
     data = nullptr;
 }
 
+// Constructor with specified dims
 Tensor::Tensor(int d1, int d2, int d3) {
     width = d1;
     height = d2;
     depth = d3;
     size = width * height * depth;
     data = new double[size];
+}
+
+// Copy constructor
+Tensor::Tensor(const Tensor &other) {
+    width = other.width;
+    height = other.height;
+    depth = other.depth;
+    size = other.size;
+    data = new double[size];
+    for (int i = 0; i < size; i++) {
+        data[i] = other.data[i];
+    }
+}
+
+// Move constructor
+Tensor::Tensor(Tensor &&other) noexcept: width(other.width), height(other.height), depth(other.depth), size(other.size), data(other.data)
+{
+    other.width = 0;
+    other.height = 0;
+    other.depth = 0;
+    other.size = 0;
+    other.data = nullptr;
 }
 
 Tensor::~Tensor() {
@@ -64,6 +88,8 @@ double &Tensor::operator[](int i) const {
     if (i < size) {
         return data[i];
     }
+    // Workaround to always get a result, might break things later
+    return data[0];
 }
 
 double &Tensor::operator()(int i, int j, int k) const {
@@ -74,3 +100,64 @@ double &Tensor::operator()(int i, int j, int k) const {
         return data[0];
     }
 }
+
+// Copy assignment operator
+Tensor Tensor::operator=(const Tensor &other) {
+    width = other.width;
+    height = other.height;
+    depth = other.depth;
+    size = other.size;
+    data = new double[size];
+    for (int i = 0; i < size; i++) {
+        data[i] = other.data[i];
+    }
+    return *this;
+}
+// Move assignment operator
+Tensor &Tensor::operator=(Tensor &&other) {
+    if (this != &other) {
+        delete[] data;
+        data = other.data; other.data = nullptr;
+        width = other.width; other.width = 0;
+        height = other.height; other.height = 0;
+        depth = other.depth; other.depth = 0;
+        size = other.size; other.size = 0;
+    }
+    return *this;
+}
+
+
+
+
+
+//Tensor &Tensor::operator=(const Tensor& other) {
+//    width = other.width;
+//    height = other.height;
+//    depth = other.depth;
+//    size = other.size;
+//
+//    delete[] data;
+//    data = new double[size];
+//
+//    for (int i = 0; i < other.size; i++) {
+//        data[i] = other.data[i];
+//    }
+//    return *this;
+//}
+//
+//Tensor& Tensor::operator=(const Tensor &&other) {
+//    width = other.width;
+//    height = other.height;
+//    depth = other.depth;
+//    size = other.size;
+//
+//    delete[] data;
+//    data = new double[size];
+//
+//    for (int i = 0; i < other.size; i++) {
+//        data[i] = other.data[i];
+//    }
+//    return *this;
+//}
+
+

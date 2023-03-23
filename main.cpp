@@ -1,6 +1,7 @@
 #include <iostream>
 
 #include "tensor.h"
+#include "convolute.h"
 
 int fibonacci(int n) {
     if (n == 1) {
@@ -25,7 +26,13 @@ int main() {
 
     t1[4] = 55;
 
+    t1[4] += 2;
+
     std::cout << t1(1,1,0) << std::endl;
+
+
+    Conv2d l1(3, 5, 3, 1, 0);
+
 
     return 0;
 }
