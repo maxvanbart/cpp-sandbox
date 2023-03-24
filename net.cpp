@@ -12,7 +12,7 @@ Tensor net(Tensor img) {
     Tensor x = img;
     Conv2d l1(3, 8, 3, 1, 1);
     Conv2d l2(8, 12, 3, 1, 1);
-    Conv2d l3(12, 20, 3, 1, 1);
+    Conv2d l3(2, 20, 3, 1, 1);
     Conv2d l4(20, 12, 1, 1, 0);
     Conv2d l5(12, 20, 3, 1, 1);
     Conv2d l6(20, 40, 3, 1, 1);
@@ -87,10 +87,10 @@ Tensor net(Tensor img) {
 //    x = relu(x);
 //    x = l16.forward(x);
 //    x = relu(x);
-//    x = l17.forward(x);
-//    x = relu(x);
-//    x = l18.forward(x);
-//    x = relu(x);
+    x = l17.forward(x);
+    x = relu(x);
+    x = l18.forward(x);
+    x = relu(x);
 
     auto stop = std::chrono::high_resolution_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
