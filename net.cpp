@@ -9,8 +9,8 @@ Tensor net(Tensor img) {
     int time_before_loop_begins = time(NULL);
 
     Tensor x = img;
-    Conv2d l1(3, 16, 3, 1, 1);
-    Conv2d l2(16, 32, 3, 1, 1);
+    Conv2d l1(3, 24, 3, 1, 1);
+    Conv2d l2(24, 32, 3, 1, 1);
     Conv2d l3(32, 64, 3, 1, 1);
     Conv2d l4(64, 32, 1, 1, 0);
     Conv2d l5(32, 64, 3, 1, 1);
@@ -23,10 +23,29 @@ Tensor net(Tensor img) {
     Conv2d l12(256, 128, 1, 1, 0);
     Conv2d l13(128, 256, 3, 1, 1);
     Conv2d l14(256, 512, 3, 1, 1);
-    Conv2d l15(512, 256, 1, 1, 0);
-    Conv2d l16(256, 512, 3, 1, 1);
-    Conv2d l17(512, 256, 1, 1, 0);
-    Conv2d l18(256, 512, 3, 1, 1);
+    Conv2d l15(512, 128, 1, 1, 0);
+    Conv2d l16(128, 512, 3, 1, 1);
+    Conv2d l17(512, 128, 1, 1, 0);
+    Conv2d l18(128, 512, 3, 1, 1);
+
+    l1.init_params();
+    l2.init_params();
+    l3.init_params();
+    l4.init_params();
+    l5.init_params();
+    l6.init_params();
+    l7.init_params();
+    l9.init_params();
+    l8.init_params();
+    l10.init_params();
+    l11.init_params();
+    l12.init_params();
+    l13.init_params();
+    l14.init_params();
+    l15.init_params();
+    l16.init_params();
+    l17.init_params();
+    l18.init_params();
 
     // downsize 448 * 448 input
     x = maxpool(x, 2, 2);

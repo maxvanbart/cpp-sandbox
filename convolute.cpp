@@ -43,8 +43,8 @@ void Conv2d::init_params() {
         for (int j = 0; j < weight[i].size; j++) {
             weight[i].data[j] = distribution(generator);
         }
-        std::cout << "weight " << i << std::endl;
-        weight[i].print();
+//        std::cout << "weight " << i << std::endl;
+//        weight[i].print();
     }
 }
 

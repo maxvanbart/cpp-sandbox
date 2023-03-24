@@ -70,7 +70,7 @@ int main() {
     Tensor t7 = l2.forward(t6);
     t7.print();
 
-    Tensor t8(448, 448, 3);
+    Tensor t8(240, 520, 3);
     std::cout << t8.width << " " << t8.height << " " << t8.depth << std::endl;
     Tensor t9 = net(t8);
     std::cout << t9.width << " " << t9.height << " " << t9.depth << std::endl;
