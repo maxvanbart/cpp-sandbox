@@ -21,7 +21,7 @@ Conv2d::Conv2d(int in_channels_, int out_channels_, int kernel_size_, int stride
     stride = stride_;
     padding = padding_;
 
-    std::cout << "Printing kernel weights" << std::endl;
+//    std::cout << "Printing kernel weights" << std::endl;
     weight = new Tensor[out_channels];
     for (int i = 0; i < out_channels; i++) {
         weight[i] = Tensor(kernel_size, kernel_size, in_channels);
