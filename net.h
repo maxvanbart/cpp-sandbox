@@ -5,6 +5,8 @@
 #ifndef SANDBOX_NET_H
 #define SANDBOX_NET_H
 
+#include <ctime>
+
 #include "convolute.h"
 #include "MaxPool.h"
 #include "relu.h"
